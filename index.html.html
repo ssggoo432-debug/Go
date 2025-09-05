@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مجموعة تواق</title>
+  <style>
+    body {
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+      direction: rtl;
+      text-align: center;
+    }
+
+    header {
+      background: #0077b6;
+      color: #fff;
+      padding: 20px 0;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+
+    .item {
+      background: #f0f8ff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      text-align: right;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #0077b6;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background: #005f86;
+    }
+
+    input, textarea {
+      width: 95%;
+      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    أهلا بك في مجموعة تواق (هشام سابقًا)
+  </header>
+
+  <div class="container">
+    <h2>إضافة خانة جديدة</h2>
+    <input type="text" id="title" placeholder="عنوان (مثال: درس جديد، موعد الطلعة)">
+    <textarea id="details" rows="3" placeholder="أدخل التفاصيل هنا..."></textarea>
+    <button onclick="addItem()">إضافة</button>
+
+    <h2>القائمة</h2>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    function addItem() {
+      const title = document.getElementById("title").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      if (title === "" && details === "") {
+        alert("الرجاء إدخال عنوان أو تفاصيل");
+        return;
+      }
+
+      const list = document.getElementById("list");
+
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `<strong>${title}</strong><br>${details}`;
+      
+      list.appendChild(div);
+
+      document.getElementById("title").value = "";
+      document.getElementById("details").value = "";
+    }
+  </script>
+
+</body>
+</html>
